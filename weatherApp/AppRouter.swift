@@ -9,28 +9,22 @@ import UIKit
 
 class AppRouter {
     // MARK: - Singleton
-    
     static var shared: AppRouter = AppRouter()
-    
+
     // MARK: - Public properties
-    
     var window: UIWindow?
-    
+
     // MARK: - initializers
-    
-    init() {
-        
-    }
-    
-    
+    init() { }
+
     // MARK: - Public functions
     func setupNewWindow(window: UIWindow) {
         self.window = window
     }
-    
+
     func showInitialModule() {
         let module = SearchCityModuleAssembler()
-        self.window?.rootViewController = UINavigationController(rootViewController: module.vc)
+        self.window?.rootViewController = UINavigationController(rootViewController: module.view)
         self.window?.makeKeyAndVisible()
     }
 }

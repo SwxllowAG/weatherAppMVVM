@@ -9,16 +9,14 @@ import UIKit
 
 class CurrentWeatherModuleAssembler: ModuleAssembler {
     typealias ViewController = CurrentWeatherViewController
-    
-    var vc: ViewController
-    
+
+    var view: ViewController
+
     init(weather: WeatherData) {
-        vc = CurrentWeatherViewController()
-        vc.weatherData = weather
+        view = CurrentWeatherViewController()
+        view.weatherData = weather
         setupViewModel()
     }
-    
-    internal func setupViewModel() {
-        
-    }
+
+    internal func setupViewModel() { }
 }

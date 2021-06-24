@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class CurrentWeatherViewController: UIViewController {
-    
     var weatherData: WeatherData? {
         didSet {
             guard let weather = weatherData else { return }
@@ -18,52 +17,48 @@ class CurrentWeatherViewController: UIViewController {
             humidityLabel.text = "humidity: \(weather.humidity)"
         }
     }
-    
-    
+
     // MARK: - private properties
-    
     private lazy var tempLabel: UILabel = {
-        let l = UILabel()
-        l.textAlignment = .center
-        return l
+        let label = UILabel()
+        label.textAlignment = .center
+        return label
     }()
-    
+
     private lazy var pressureLabel: UILabel = {
-        let l = UILabel()
-        l.textAlignment = .center
-        return l
+        let label = UILabel()
+        label.textAlignment = .center
+        return label
     }()
-    
+
     private lazy var humidityLabel: UILabel = {
-        let l = UILabel()
-        l.textAlignment = .center
-        return l
+        let label = UILabel()
+        label.textAlignment = .center
+        return label
     }()
-    
+
     private lazy var stackView: UIStackView = {
-        let sv = UIStackView(arrangedSubviews: [tempLabel, pressureLabel, humidityLabel])
-        sv.alignment = .center
-        sv.axis = .vertical
-        sv.distribution = .equalSpacing
-        sv.spacing = 10
-        return sv
+        let stack = UIStackView(arrangedSubviews: [tempLabel, pressureLabel, humidityLabel])
+        stack.alignment = .center
+        stack.axis = .vertical
+        stack.distribution = .equalSpacing
+        stack.spacing = 10
+        return stack
     }()
-    
+
     // MARK: - initializers
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
     }
-    
+
     private func setupSubviews() {
         view.backgroundColor = .white
-        
         view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            make.top.equalToSuperview().offset(30)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(30)
             make.height.equalTo(90)
         }
     }

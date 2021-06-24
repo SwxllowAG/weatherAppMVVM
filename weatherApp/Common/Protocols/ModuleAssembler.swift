@@ -9,6 +9,6 @@ import UIKit
 
 protocol ModuleAssembler {
     associatedtype ViewController
-    var vc: ViewController { get }
+    var view: ViewController { get }
     func setupViewModel()
 }

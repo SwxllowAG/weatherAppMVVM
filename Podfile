@@ -8,6 +8,7 @@ target 'weatherApp' do
   # Pods for weatherApp
   pod 'SnapKit', '~> 5.0.0'
   pod 'Alamofire', '~> 5.4'
+  pod 'SwiftLint'
 
 
   target 'weatherAppTests' do

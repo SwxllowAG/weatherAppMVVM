@@ -9,16 +9,16 @@ import UIKit
 
 class SearchCityModuleAssembler: ModuleAssembler {
     typealias ViewController = SearchCityViewController
-    
-    var vc: ViewController
-    
+
+    var view: ViewController
+
     init() {
-        vc = SearchCityViewController()
+        view = SearchCityViewController()
         setupViewModel()
     }
-    
+
     internal func setupViewModel() {
-        vc.viewModel = SearchCityViewModel()
-        vc.viewModel.delegate = vc
+        view.viewModel = SearchCityViewModel()
+        view.viewModel.delegate = view
     }
 }

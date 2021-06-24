@@ -8,7 +8,6 @@
 import Foundation
 
 class WeatherData: Decodable {
-    
     // MARK: - Stored properties
     var temp: Double
     var pressure: Double
@@ -18,13 +17,13 @@ class WeatherData: Decodable {
     enum MainCodingKeys: String, CodingKey {
         case main
     }
-    
+
     enum CodingKeys: String, CodingKey {
         case temp
         case pressure
         case humidity
     }
-    
+
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: MainCodingKeys.self)
         let main = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: MainCodingKeys.main)
